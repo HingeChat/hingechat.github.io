@@ -1,2 +1,3 @@
-# www.HingeChat.github.io
+HingeChat website
+=================
 The website for Hinge.
