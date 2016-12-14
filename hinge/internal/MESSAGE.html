@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+     integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+     integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <title>Hinge API Message Documentation</title>
+</head>
+<body>
+    <center>
+    <h1>Message</h1>
+    <p>
+    The Message module (src.hinge.network.Message) is what ConnectionManagers (src.hinge.network.ConnectionManager) use to handle data coming to and from the server.<br>
+    A Message can contain the following pieces of data, a <b>serverCommand</b>, a <b>clientCommand</b>, a <b>sourceNick</b>,
+    a <b>destNick</b>, a <b>payload</b>, an <b>hmac</b>, an <b>error</b>, a <b>num</b>, an <b>isGroup</b>, and <b>otherNicks</b>.<br></p>
+    <ul>
+        <li><b>serverCommand</b>: a command sent from the ConnectionManager to the server that is intended for the server (like registering a nick or adding a nick to a group chat).</li>
+        The server will then send a Message back to the client with the data that is necessary.
+        <li><b>clientCommand</b>: a command sent from the ConnectionManager to the server that *won't* be handled by the server, but still be sent to the other client.<br></li>
+        <li><b>sourceNick</b>: the nick/client that the Message came from.</li>
+        <li><b>destNick</b>: the nick/client the Message is going to.</li>
+        <li><b>payload</b>: the data to be sent to the destNick.</li>
+        <li><b>hmac</b>: the hmac key to decrypt the data (the SMP (Socialist Millionaire Protocol) is in place to detect MITM attacks but not prevent them,</li>
+        which is why there is a feature for nicks to authenticate themselves).
+        <li><b>error</b>: the error if the Message is invalid.</li>
+        <li><b>num</b>: the specific number of the Message.</li>
+        <li><b>isGroup</b>: a boolean that decides if the Message is for a group chat or not.</li>
+        <li><b>otherNicks</b>: if it's for a group chat, the other nicks will be involved with the Message.</li>
+    </ul>
+    <a href="../../hinge.html">back to hinge</a>
+    </center>
+</body>
+</html>
