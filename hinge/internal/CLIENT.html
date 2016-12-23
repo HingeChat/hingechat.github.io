@@ -7,12 +7,31 @@
      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
      integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <title>Hinge API Client Documentation WIP</title>
+    <title>Hinge API Client Documentation</title>
 </head>
 <body>
     <center>
-    <h1>Client Communication WIP</h1>
-    <p>todo?</p>
+    <h1>Client Communication</h1>
+    <p><b>Note: Group chatting has not yet been added to this part, so some parts of this documentation may be changed</b></p>
+    <p>Client communication begins when one user (let's say John) requests to connect to a different user (let's say Sara).<br>
+    If Sara accepts John's request, then her ConnectionManager will create a new Client instance.<br>
+    The first thing that will happen now that the two Clients have been created is that Sara will handshake with John.<br>
+    The handshake process goes like this,
+    <ul>
+        <li>first Sara will send the <i>REDY</i> command to John, indicating that the connection to each other is done.</li>
+        <li>Sara will then get John's public key, then give her private key to John.</li>
+        <li>Sara will then ensure that the rest of the connection is encrypted using AES.</li>
+    </ul>
+    While this is all happening, John will be initiating the handshake and sending the <i>HELO</i> command to Sara, indicating John would like to start the handshake.<br>
+    John will then receive the REDY command from Sara and send his public key, receive her public key, then ensure the rest of the connection is encrypted using AES.<br><br>
+    Finally, the handshake is then complete, allowing the client connection to continue.<br> The client communication system after handshake is basically just a loop
+    to check if the other client is sending any commands, handle the commands, then decrypt them.<br>
+    For example, if John wants to tell Sara that he'll be at work by 3, he'll send a <i>COMMAND_MSG</i> to her.<br> But before he's able to do that,
+    first he must encrypt the data (or the payload) then send it as a Message securely.<br>
+    Sara will be able to decrypt this data and read the raw text message.<br><br>
+    I could go more in-depth into how the message encryption/decryption process works, but too lazy. All you need to know is that it's secure :P<br>
+    but if you must know, just <a href="https://github.com/HingeChat/Hinge/blob/master/src/hinge/network/Client.py">review it here.</a>
+    </p>
     <a href="../../hinge.html">back to hinge</a>
     </center>
 </body>
