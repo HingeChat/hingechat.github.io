@@ -29,7 +29,10 @@
     to check if the other client is sending any commands, handle the commands, then decrypt them.<br>
     For example, if John wants to tell Sara that he'll be at work by 3, he'll send a <i>COMMAND_MSG</i> to her.<br> But before he's able to do that,
     first he must encrypt the data (or the payload) then send it as a Message securely.<br>
-    Sara will be able to decrypt this data and read the raw text message.<br><br>
+    Sara will be able to decrypt this data and read the raw text message.<br>
+    If John is paranoid that his connection is insecure due to a <i>Man in the Middle (MITM) attack</i> he is able to authenticate the connection.<br>
+    He can set a question that only Sara will know the answer to and Sara will have to answer the question properly to authenticate the conversation.<br>
+    Hinge uses the <i>Socialist Millionaire Protocol (SMP)</i> in order to authenticate conversations and prevent MITM attacks.<br><br>
     There is also an hmac in order to authenticate data sent between clients. If Sara somehow gets hacked during her conversation and the hacker tries to snoop on the conversation but fails to authenticate, John would be alerted.
     <h3>Group Client Communication</h2>
     Coming soon!
