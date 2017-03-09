@@ -15,11 +15,11 @@
 
     <p>
     This file will explain the entire Hinge networking system, and client connection in order.<br>
-    First, a client will connect to the <a href="server.html"><i>TURN server</i></a> via the <i>ConnectionManager</i> which uses the <i>sock</i> module. The ConnectionManager handles message sending and receiving to and from the TURN server.<br>
-    The client John Smith will notify the ConnectionManager that it would like to connect to the client Rachel Adams with the <i>HELO</i> command (COMMAND_HELO in src.hinge.utils.constants).<br>
-    John Smith will do this by packing a <i>Message</i> (see <a href="message.html">Message documentation</a>) with the information it would like to pass on to the ConnectionManager.<br>
-    The ConnectionManager will take the Message and pass it onto the server using the sock module. The server will accept the command and send it to Rachel Adams' ConnectionManager.<br>
-    Her ConnectionManager will receive the Message including the HELO command and properly handle it. For more information on the Client handshake system, see the <a href="CLIENT.html">client documentation.</a>
+    First, a client will connect to the <a href="server.html"><i>TURN server</i></a> via the <i>Client</i> which uses the <i>sock</i> module. The Client handles message sending and receiving to and from the TURN server.<br>
+    The client John Smith will notify the Client that it would like to connect to the client Rachel Adams with the <i>HELO</i> command (COMMAND_HELO in src.hinge.utils).<br>
+    John Smith will do this by packing a <i>Message</i> (see <a href="message.html">Message documentation</a>) with the information it would like to pass on to the Client.<br>
+    The Client will take the Message and pass it onto the server using the sock module. The server will accept the command and send it to Rachel Adams' Client.<br>
+    Her Client will receive the Message including the HELO command and properly handle it. For more information on the Client handshake system, see the <a href="CLIENT.html">client documentation.</a>
     </p>
     <a href="../../hinge.html">back to hinge</a>
     </center>

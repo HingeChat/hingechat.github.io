@@ -15,8 +15,8 @@
     <p><b>Note: Client communication is an entirely different process for group chats, so they are split up into two parts.</b></p>
     <h3>One-on-One Client Communication</h2>
     <p>Client communication begins when one user (let's say John) requests to connect to a different user (let's say Sara).<br>
-    If Sara accepts John's request, then her ConnectionManager will create a new Client instance.<br>
-    The first thing that will happen now that the two Clients have been created is that Sara will handshake with John.<br>
+    If Sara accepts John's request, then her Client will create a new PrivateSession instance.<br>
+    The first thing that will happen now that the two PrivateSessions have been created is that Sara will handshake with John.<br>
     The handshake process goes like this,
     <ul>
         <li>first Sara will send the <i>REDY</i> command to John, indicating that the connection to each other is done.</li>
@@ -28,7 +28,7 @@
     Finally, the handshake is then complete, allowing the client connection to continue.<br> The client communication system after handshake is basically just a loop
     to check if the other client is sending any commands, handle the commands, then decrypt them.<br>
     For example, if John wants to tell Sara that he'll be at work by 3, he'll send a <i>COMMAND_MSG</i> to her.<br> But before he's able to do that,
-    first he must encrypt the data (or the payload) then send it as a Message securely.<br>
+    first he must encrypt the data then send it as a Message securely.<br>
     Sara will be able to decrypt this data and read the raw text message.<br>
     If John is paranoid that his connection is insecure due to a <i>Man in the Middle (MITM) attack</i> he is able to authenticate the connection.<br>
     He can set a question that only Sara will know the answer to and Sara will have to answer the question properly to authenticate the conversation.<br>

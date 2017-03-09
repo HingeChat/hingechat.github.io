@@ -15,9 +15,9 @@
 
     <p>
     The Hinge API uses a builtin central TURN server, which every client connects to via the builtin <i>sock</i> module.<br>
-    They do not use the sock module directly, they use the ConnectionManager to handle message sending and receiving. The server can see every client and handles commands.<br>
-    For example, when a client connects to another client, it will send the <i>HELO</i> command, and the server will pass it on to the other client with the ConnectionManager as the messenger.<br>
-    The ConnectionManager uses the <a href="MESSAGE.html"><i>Message</i></a> module to pack messages, and the TURN server will read it. For more information about commands, see the <a href="CONSTANTS.html">constants documentation.</a>
+    They do not use the sock module directly, they use the Client to handle message sending and receiving. The server can see every client and handles commands through the HingeClient class.<br>
+    For example, when a client connects to another client, it will send the <i>HELO</i> command, and the HingeClient will pass it on to the other client with the Client as the messenger.<br>
+    The Client uses the <a href="MESSAGE.html"><i>Message</i></a> module to pack messages, and HingeClient will read it. For more information about commands, see the <a href="UTILS.html">utils documentation.</a>
     </p>
     <a href="../../hinge.html">back to hinge</a>
     </center>
